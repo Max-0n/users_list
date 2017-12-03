@@ -1,0 +1,20 @@
+@import "../mixins/_import";
+
+bots,
+settings {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin: auto;
+  max-width: 300px;
+  max-height: 810px;
+  height: auto;
+}
+
+bots {
+  overflow: auto;
+  max-height: 400px;
+}
+
+settings {
+  max-height: 400px;
+}

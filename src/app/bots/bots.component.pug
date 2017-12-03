@@ -1,0 +1,17 @@
+include ../../mixins/all
+
+.bots
+  .bots__item(*ngFor="let user of usersService.users")
+    button.bots__item(mat-button, (click)="openSettings(user)")
+      .bots__avatar([style.background-image]="'url(' + usersService.getAvatar(user) + ')'")
+      .bots__name {{ user.name }}
+  button.btn.btn_input.btn_pagination(
+    *ngIf="this.usersService.prev",
+    mat-button,
+    type="button",
+    (click)="prev()") Prev
+  button.btn.btn_input.btn_pagination(
+    *ngIf="this.usersService.next",
+    mat-button,
+    type="button",
+    (click)="next()") Next

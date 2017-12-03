@@ -1,0 +1,20 @@
+include ../../mixins/all
+
+form.settings([formGroup]='settingsForm')
+  mat-toolbar-row
+    button.btn.btn_back(
+      mat-button,
+      type="button",
+      (click)="back()") Back
+  mat-form-field.btn_input
+    input(matInput, placeholder="Name", formControlName="name")
+  mat-form-field.btn_input
+    input(matInput, placeholder="AvatarUrl", formControlName="avatar")
+  mat-form-field.btn_input
+    mat-select(placeholder="Some parameter", formControlName="param")
+      mat-option(*ngFor="let par of userParam", [value]="par.value") {{ par.viewValue }}
+  button.btn.btn_input(
+    mat-button,
+    type="button",
+    (click)="save()") Save
+  //- pre {{ foods | json }}

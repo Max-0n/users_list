@@ -1,0 +1,116 @@
+@import "mixins/optimize";
+// @import "mixins/import";
+@import 'mixins/material';
+
+body {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+app {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #3ad8fc;
+  @include background-gradient(to right bottom, #3ad8fc, #6c7cef);
+}
+
+.btn {
+  display: block;
+  margin: auto;
+  color: white;
+  @include trn_all();
+  & .mat-button-focus-overlay {
+    display: none;
+  }
+  &:hover {
+    background: rgba(255,255,255,.3);
+  }
+  &_checkbox {
+    & > label {
+      cursor: pointer;
+      float: left;
+      position: relative;
+      display: block;
+      content: '';
+      @include width-fix(100px);
+      width: 60px;
+      height: 30px;
+      @include border-radius(20px);
+      border: 1px solid $grey;
+      background: $grey-light;
+
+      @include trn_all(500ms);
+      &:before {
+        position: absolute;
+        content: '';
+        top: 0; bottom: 0; left: 1px;
+        margin: auto;
+        width: 28px;
+        height: 28px;
+        background: white;
+        // border: 1px solid $grey;
+        @include border-radius(50%);
+        @include trn_all();
+      }
+    }
+    & > input[type="checkbox"] {
+      display: none;
+      &:checked + label {
+        border-width: 15px;
+        border-color: $blue;
+        &:before { left: 16px; }
+      }
+    }
+  }
+  &_input {
+    width: 100%;
+    & .mat-select-value,
+    & .mat-input-placeholder,
+    & .mat-select-arrow {
+      color: white;
+    }
+    & .mat-form-field-underline,
+    & .mat-form-field-ripple {
+      background-color: white;
+    }
+  }
+  &_pagination {
+    float: left;
+    width: 50%;
+  }
+  &_back {
+    float: left;
+    left: -10px;
+    margin-bottom: 10px !important;
+    &:before {
+      vertical-align: middle;
+      content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 100 180"><path style="fill: #fff;" d="M88,174.7c-2.4,0-4.8-0.9-6.7-2.8L5.1,95.7c-3.3-3.3-3.3-8.7,0-12L81.3,7.5c3.9-3.9,10.4-3.7,14,0.7c3.1,3.8,2.5,9.5-1,13c-12.7,12.7-55.3,55.3-66,66c-1.4,1.4-1.4,3.6,0,4.9l66,66c3.6,3.6,4.2,9.4,0.9,13.2C93.3,173.6,90.7,174.7,88,174.7z"/></svg>');
+      display: inline-block;
+      padding-right: 10px;
+      width: 15px;
+      height: 29px;
+    }
+  }
+  &__close {
+    border: none;
+    background: none;
+    line {
+      fill:none;
+      stroke: $blue;
+      stroke-width:20;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      stroke-miterlimit:10;
+    }
+  }
+}
+
+.mat-button-ripple > * {
+  background: rgba(255,255,255,.5);
+}
+
+.bots__item .mat-button-focus-overlay {
+  display: none;
+}
